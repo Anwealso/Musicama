@@ -1,6 +1,7 @@
 import sys
 import spotipy
 import spotipy.util as util
+from models import Musicama
 
 client_id = '468ecf32cd4d416e806d0a3e8153080f'
 client_secret = 'f94cad73e4d643aba1480a349429ffab'
@@ -16,8 +17,9 @@ def get_token(username):
     return token
 
 def create_user(token):
-    sp = spotipy.Spotify(auth=token)
+    sp = Musicama(auth=token)
     return sp
+
 
 def main():
     username = sys.argv[1]

@@ -5,11 +5,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="shortcut icon" href="images/logo-basic.png" type="image/pmg">
+        <link rel="shortcut icon" href="{{ url_for('static', filename = 'images/logo-basic.png') }}" type="image/pmg">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style2.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style2.css') }}">
         <title>Spotinder</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
     
     <body>
@@ -20,7 +21,7 @@
                     <div class="header-title" style="color: #373737";>
                             Musicama
                     </div>
-                    <img src="images/logo.svg" alt="Logo">
+                    <img src="{{ url_for('static', filename = 'images/logo.svg') }}" alt="Logo">
                     <div class="header-title">
                             Musicama     
                     </div>
@@ -30,7 +31,7 @@
             
             <!--MAIN DIV-->
             <div class="card mx-auto" style="width: 18rem; margin:30px;">
-                <img src="images/example-album-cover.jpg" class="card-img-top" alt="Album Cover">
+                <img src="{{ url_for('static', filename = 'images/example-album-cover.jpg') }}" class="card-img-top" alt="Album Cover">
 
                 <div class="card-wrapper">
                     <div class="card-body">
@@ -40,7 +41,7 @@
                         <div class="btn-toolbar mx-auto" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
                             <button type="button" class="btn btn-secondary" style="background-color:red">Bad</button>
-                            </div>
+                        </div>
                             <div class="btn-group mr-2" role="group" aria-label="Second group">
                             <button type="button" class="btn btn-secondary" style="background-color: green">Good</button>
                             </div>
@@ -50,4 +51,76 @@
         </div>
     </body>
 
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+      window.onSpotifyWebPlaybackSDKReady = () => {
+        
+        var token = $.ajax({
+            type: 'POST',       
+            url: "/ajax/get_token",
+            dataType: 'html',
+            context: document.body,
+            global: false,
+            async:false,
+            success: function(data) {
+                return data;
+            }
+        }).responseText;
+
+        // const token = "BQCB9UsskmIIQ28AbXUPUlunB562wUYKW7wxtCvdG9LY_wpqB1v12qjgCbrXny2OX36TxuVKwhVZguJJozl9pPEFemYcIo2SSf5eVI_LJ6J0G-CYyZtUhXP-xwdzbYmoMJhF7RpFukjxOXyugJ-TyJsdGPcjlkOpqSj6O3tXXfjgGrSiNZHqWQ3hSYlJLW3-CHvDmhPMctiodL5fG1PN9X6FTd7d"
+        const player = new Spotify.Player({
+          name: "Web Playback SDK Quick Start Player",
+          getOAuthToken: cb => {
+            cb(token);
+          }
+        });
+
+        // Error handling
+        player.addListener("initialization_error", ({ message }) => {
+          console.error(message);
+        });
+        player.addListener("authentication_error", ({ message }) => {
+          console.error(message);
+        });
+        player.addListener("account_error", ({ message }) => {
+          console.error(message);
+        });
+        player.addListener("playback_error", ({ message }) => {
+          console.error(message);
+        });
+
+        // Playback status updates
+        player.addListener("player_state_changed", state => {
+          console.log(state);
+        });
+
+        // Ready
+        player.addListener("ready", ({ device_id }) => {
+          console.log("Ready with Device ID", device_id);
+        });
+
+        // Not Ready
+        player.addListener("not_ready", ({ device_id }) => {
+          console.log("Device ID has gone offline", device_id);
+        });
+
+        // Connect to the player!
+        player.connect();
+        
+      };
+
+      $(document).ready(function(){
+        $("button").click(function(){
+
+            $.ajax({
+                type: 'POST',
+                url: '/ajax/start_playback',
+                success: function(data) {
+                    return;
+                }
+            });
+        });
+      });
+    </script>
+    
 </html>

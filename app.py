@@ -23,7 +23,7 @@ def start_playback():
     global session
     if session is None:
         session = authenticate.create_user(token)
-    control_playback.start(session)
+    control_playback.toggle_play(session)
     return ""
 
 @app.route('/ajax/handle_feedback/like', methods=['POST'])
