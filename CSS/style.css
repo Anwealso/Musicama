@@ -1,0 +1,86 @@
+android {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    background: linear-gradient(167.87deg, #6FCF97 0%, #F2F477 93.34%);
+}
+
+swipe-window {
+    position: absolute;
+    width: 267px;
+    height: 413px;
+    left: 47px;
+    top: 113px;
+}
+
+swipe-album-cover {
+    position: absolute;
+    width: 217px;
+    height: 215px;
+    left: calc(50% - 217px/2);
+    top: calc(50% - 215px/2 - 78px);
+
+    background: #373737;
+}
+
+swipe-title {
+    position: absolute;
+    width: 194px;
+    height: 19px;
+    left: 25px;
+    top: 254px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+swipe-album {
+    position: absolute;
+    width: 116px;
+    height: 23px;
+    left: 25px;
+    top: 282px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #000000;
+}
+
+swipe-background {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 22.28%;
+    
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+page-header {
+    position: absolute;
+    width: 360px;
+    height: 144px;
+    left: 0px;
+    top: 0px;
+}
+
+logo {
+    position: absolute;
+    left: 26.94%;
+    right: 56.67%;
+    top: 7.64%;
+    bottom: 51.39%;
+    
+    border: 2px solid #80D493;
+}
