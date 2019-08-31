@@ -1,8 +1,22 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap');
+
 android {
     position: relative;
     width: 360px;
     height: 640px;
     background: linear-gradient(167.87deg, #6FCF97 0%, #F2F477 93.34%);
+}
+
+header-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    
+    color: white;
 }
 
 swipe-window {
@@ -15,8 +29,8 @@ swipe-window {
 
 swipe-album-cover {
     position: absolute;
-    width: 217px;
-    height: 215px;
+    width: 5px;
+    height: 5px;
     left: calc(50% - 217px/2);
     top: calc(50% - 215px/2 - 78px);
 
@@ -40,7 +54,7 @@ swipe-title {
     color: #000000;
 }
 
-swipe-album {
+swipe-artist {
     position: absolute;
     width: 116px;
     height: 23px;
@@ -83,4 +97,30 @@ logo {
     bottom: 51.39%;
     
     border: 2px solid #80D493;
+}
+
+logo-header {
+    position: absolute;
+    left: 45.83%;
+    right: 11.94%;
+    top: 18.75%;
+    bottom: 61.81%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+}
+
+header-background {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 42.52%;
+
+    background: #373737;
 }

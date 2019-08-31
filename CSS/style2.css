@@ -1,0 +1,23 @@
+html {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    background: linear-gradient(167.87deg, #6FCF97 0%, #F2F477 93.34%) fixed;
+  }
+
+.card-wrapper {
+    width: 400px;
+    margin: auto;
+}
+
+.header-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    
+    color: white;
+}
