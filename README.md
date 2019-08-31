@@ -1,2 +1,2 @@
-# Spotinder
+# Musicama
 Tinder for Spotify
