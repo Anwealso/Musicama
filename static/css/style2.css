@@ -7,9 +7,9 @@ body {
     background: linear-gradient(167.87deg, #6FCF97 0%, #F2F477 93.34%) fixed;
     
     
-    -webkit-animation: AnimationName 11s ease infinite;
-    -moz-animation: AnimationName 11s ease infinite;
-    animation: AnimationName 11s ease infinite;
+    -webkit-animation: AnimationName 5s ease infinite;
+    -moz-animation: AnimationName 5s ease infinite;
+    animation: AnimationName 5s ease infinite;
 
     @-webkit-keyframes AnimationName {
         0%{background-position:0% 97%}
@@ -68,6 +68,23 @@ body {
 }
 
 .card {
-    border-radius: 5%;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.1);
+    border-radius: 8%;
+    border: 0px;
+    box-shadow: 0px 6px 6px 0px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.form-control {
+    width: 20%;
+    font-size: 20px;
+    position:absolute; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+}
+
+#play_button {
+    border-radius: 0px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
 }

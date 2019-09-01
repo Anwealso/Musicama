@@ -14,17 +14,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js" async></script>
     <script src="/static/js/node-vibrant/dist/vibrant.js"></script>
-    <title>Musicama.</title>
+    <title>Musicama</title>
     
     </head>
     
     <body>
-            <nav class="navbar navbar-dark" style="background-color: #660033; height: 80px">
+            <nav class="navbar navbar-dark" style="background-color: #202020; height: 80px">
                 <div class="center" id="nav_center">
                     <a class="back-btn invisible" id="back-btn" onclick="window.history.go(-1)">&#8592;&nbsp;&nbsp;</a>
                     <a class="navbar-brand" href="index.html">
                 <img src="/static/images/logo__.png" width="60" height="60" class="d-inline-block align-center" alt="" >
-                        <strong>&nbsp;Musicama</strong>
+                        <strong>&nbsp;</strong>
                     </a>
                     <a class="back-btn invisible" href="index.html">&nbsp;&nbsp;&uparrow;</a>
                 </div>
@@ -240,7 +240,7 @@
         
         function grab(hex) {
             var c1 = hex;
-            var c2 = shadeColor(c1,-100);
+            var c2 = shadeColor(c1,-50);
             document.body.style.backgroundSize = '400% 400%';
             document.body.style.backgroundImage = 'linear-gradient(219deg,' + c1 + ', ' + c2 + ')';
         }

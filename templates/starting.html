@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+    
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/static/images/logo__.png" type="image/pmg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js" async></script>
+    <title>Musicama.</title>
+    
+    </head>
+    
+    <body>
+            <nav class="navbar navbar-dark" style="background-color: #660033; height: 80px">
+                <div class="center" id="nav_center">
+                    <a class="back-btn invisible" id="back-btn" onclick="window.history.go(-1)">&#8592;&nbsp;&nbsp;</a>
+                    <a class="navbar-brand" href="index.html">
+                <img src="/static/images/logo__.png" width="60" height="60" class="d-inline-block align-center" alt="" >
+                        <strong>&nbsp;Musicama</strong>
+                    </a>
+                    <a class="back-btn invisible" href="index.html">&nbsp;&nbsp;&uparrow;</a>
+                </div>
+            </nav>
+
+            <!--MAIN DIV-->
+            <div class="form-group" onsubmit="submit()">
+<!--                <label for="exampleInputPassword1">Spotify Username</label>-->
+                <input type="text" class="form-control" id="username" placeholder="Spotify Username">
+            </div>
+        </div>
+    </body>
+
+    <script>
+    function submit() {
+        alert("submit");
+    } 
+    </script>
+</html>
