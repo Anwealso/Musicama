@@ -21,3 +21,27 @@ body {
     
     color: white;
 }
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    text-align: center;
+
+}
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+
+ .navbar-nav {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    text-align: center;
+}
+
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
