@@ -9,7 +9,7 @@ class Musicama(spotipy.Spotify):
         # print(sp.devices())
         # TODO: need to guess the device id of the web player?
         devices = sp.devices()['devices']
-        print(devices)
+        # print(devices)
         for device in devices:
             if device['name'] == 'Web Playback SDK Quick Start Player':
             # if device['name'] == 'ONEPLUS A5010':

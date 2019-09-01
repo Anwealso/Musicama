@@ -25,7 +25,8 @@ def main():
     username = sys.argv[1]
     token = get_token(username)
     sp = create_user(token)
-    print(token)
+    import pprint
+    pprint.pprint(sp.user_playlists('byronho24'))
 
 if __name__ == "__main__":
     main()

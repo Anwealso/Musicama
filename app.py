@@ -23,9 +23,11 @@ def start_playback():
     global session
     if session is None:
         session = authenticate.create_user(token)
-    control_playback.toggle_play(session)
-    return ""
+    currently_playing = control_playback.toggle_play(session)
+    return flask.jsonify(control_playback.get_track_metadata(currently_playing))
+    
 
 @app.route('/ajax/handle_feedback/like', methods=['POST'])
 def handle_like():
-    control_playback.handle_feedback(control_playback.LIKE, session)
+    currently_playing = control_playback.handle_feedback(control_playback.LIKE, session)
+    return flask.jsonify(control_playback.get_track_metadata(currently_playing))
