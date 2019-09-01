@@ -4,11 +4,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import authenticate
 import pprint
 from random import shuffle
-
-username = 'mmishr23'
-token = authenticate.get_token(username)
-sp = authenticate.create_user(token)
-
+import sys
 
 #Connect to the best playlist, like ever
 # playlist_id = 'playlist'
@@ -65,7 +61,7 @@ def user_playlist_tracks_full(spotify_connection, user, playlist_id=None, fields
 #
 
 
-def spotify_top_played():
+def get_top_tracks(sp):
     response = sp.current_user_top_tracks()
     results = []
     for elements in response["items"]:
@@ -78,18 +74,22 @@ def spotify_top_played():
             results.append(elements['uri'])
     return results
 
+def generate_seed_tracks(candidate_tracks, limit=5):
+    return shuffle(candidate_tracks)[:limit]
 
-def get_recommendations():
-    top_tracks = spotify_top_played()
-    recommendations = sp.recommendations(seed_tracks=shuffle(top_tracks)[:5],
-                                         limit=100)
+def get_recommendations(sp, seed_tracks):
+    recommendations = sp.recommendations(seed_tracks=seed_tracks, limit=100)
     recom = []
     for elements in recommendations['tracks']:
         recom.append(elements['uri'])
     return recom
 
-recom = get_recommendations()
-print(recom)
-# for elements in sp.recommendations(
-# seed_tracks=spotify_top_played()):
-#     print(elements)
+def main():
+    username = sys.argv[1]
+    token = authenticate.get_token(username)
+    sp = authenticate.create_user(token)
+    top_tracks = get_top_tracks(sp)
+    recommended_tracks = get_recommendations(sp, generate_seed_tracks(top_tracks))
+
+
+    

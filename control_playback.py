@@ -7,8 +7,6 @@ import time
 
 DISLIKE = "LEFT"
 LIKE = "RIGHT"
-PLAYLIST_NAME = "Musicama Liked Songs"
-PLAYLIST_ID = None
 
 def get_track_metadata(currently_playing_data):
     artists = []
@@ -26,26 +24,12 @@ def get_track_metadata(currently_playing_data):
     }
     return data
 
-def find_likes_playlist(session):
-    for playlist in session.current_user_playlists()['items']:
-        if playlist['name'] == PLAYLIST_NAME:
-            return playlist['id']
-    return None
 
 def handle_feedback(swipe_feedback: str, session: Musicama):
     current_track_uri = session.currently_playing()['item']['uri']
-    global PLAYLIST_ID
-    if PLAYLIST_ID is None:
-        playlist_id = find_likes_playlist(session)
-        if playlist_id is None:
-            playlist_all_data = session.user_playlist_create(
-                session.user_id, PLAYLIST_NAME)
-            PLAYLIST_ID = playlist_all_data['id']
-        else:
-            PLAYLIST_ID = playlist_id
     if swipe_feedback == LIKE:
         # User liked song
-        session.user_playlist_add_tracks(session.user_id, PLAYLIST_ID, [current_track_uri])
+        session.user_playlist_add_tracks(session.user_id, session.likes_playlist_id, [current_track_uri])
     # Play next songs
     session.next_track(device_id=session.device_id)
     # Return new track information

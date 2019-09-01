@@ -2,9 +2,9 @@ import flask
 import control_playback
 import authenticate
 import time
+from models import Musicama
 
 app = flask.Flask(__name__)
-username = 'byronho24'
 token = None
 session = None
 
@@ -15,7 +15,7 @@ def index():
 @app.route('/ajax/get_token', methods=['POST'])
 def get_token():
     global token
-    token = authenticate.get_token(username)
+    token = authenticate.get_token(Musicama.USERNAME)
     return token
 
 @app.route('/ajax/start_playback', methods=['GET', 'POST'])
