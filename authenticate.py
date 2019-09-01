@@ -17,12 +17,12 @@ def get_token(username):
     return token
 
 
-def main():
-    username = sys.argv[1]
-    token = get_token(username)
-    sp = create_user(token)
-    import pprint
-    pprint.pprint(sp.user_playlists('byronho24'))
+# def main():
+#     username = sys.argv[1]
+#     token = get_token(username)
+#     sp = create_user(token)
+#     import pprint
+#     pprint.pprint(sp.user_playlists('byronho24'))
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
