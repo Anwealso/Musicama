@@ -75,21 +75,15 @@ def get_top_tracks(sp):
     return results
 
 def generate_seed_tracks(candidate_tracks, limit=5):
-    return shuffle(candidate_tracks)[:limit]
+    shuffle(candidate_tracks)
+    return candidate_tracks[:limit]
 
 def get_recommendations(sp, seed_tracks):
     recommendations = sp.recommendations(seed_tracks=seed_tracks, limit=100)
     recom = []
     for elements in recommendations['tracks']:
-        recom.append(elements['uri'])
+        recom.append(elements)
     return recom
-
-def main():
-    username = sys.argv[1]
-    token = authenticate.get_token(username)
-    sp = authenticate.create_user(token)
-    top_tracks = get_top_tracks(sp)
-    recommended_tracks = get_recommendations(sp, generate_seed_tracks(top_tracks))
 
 
     
