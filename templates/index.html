@@ -2,44 +2,33 @@
 <html lang="en" style="height:100%">
     
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="shortcut icon" href="{{ url_for('static', filename = 'images/logo-basic.png') }}" type="image/pmg">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ url_for('static', filename = 'css/style2.css') }}">
-        <title>Spotinder</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/static/images/logo__.png" type="image/pmg">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.0.1/progressbar.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.5/awesomplete.min.js" async></script>
+    <title>Musicama.</title>
+    
     </head>
     
     <body>
-        <div class="container-fluid" style="align-content: center;">
-            <!--NAVBAR-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-              <!-- <button class="navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button> -->
-              <div class="mx-auto">
-                <h1>
-                  <a class="navbar-brand mx-auto" href="/"><img src="{{ url_for('static', filename = 'images/logo.svg') }}" align='left' alt="Logo" >Musicama</a>
-                </h1>
-
-              </div>
-              
-              
-        </div>
-            <!-- <nav class="navbar navbar-dark" style="background-color: #373737; height: 100px">
-                <div class="mx-auto">
-                    <div class="header-title" style="color: #373737";>
-                    </div>
-                    
+            <nav class="navbar navbar-dark" style="background-color: #660033; height: 80px">
+                <div class="center" id="nav_center">
+                    <a class="back-btn invisible" id="back-btn" onclick="window.history.go(-1)">&#8592;&nbsp;&nbsp;</a>
+                    <a class="navbar-brand" href="index.html">
+                <img src="/static/images/logo__.png" width="60" height="60" class="d-inline-block align-center" alt="" >
+                        <strong>&nbsp;Musicama</strong>
+                    </a>
+                    <a class="back-btn invisible" href="index.html">&nbsp;&nbsp;&uparrow;</a>
                 </div>
+            </nav>
 
-            </nav> -->
-            
             <!--MAIN DIV-->
             <div class="card mx-auto" style="width: 18rem; margin:30px;">
                 <img src="{{ url_for('static', filename = 'images/example-album-cover.jpg') }}" class="card-img-top" alt="Album Cover" id="album_art">
@@ -53,10 +42,10 @@
                         
                         <div class="btn-toolbar mx-auto" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2" role="group" aria-label="First group">
-                            <button type="button" class="btn btn-secondary" id="dislike_button" style="background-color:red">Bad</button>
+                            <button type="button" class="btn btn-secondary" id="dislike_button" style="background-color:indianred">Bad</button>
                         </div>
                             <div class="btn-group mr-2" role="group" aria-label="Second group">
-                            <button type="button" class="btn btn-secondary" id="like_button" style="background-color: green">Good</button>
+                            <button type="button" class="btn btn-secondary" id="like_button" style="background-color: darkcyan">Good</button>
                             </div>
                     </div>  
                 </div>              
