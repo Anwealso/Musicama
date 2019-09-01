@@ -85,7 +85,7 @@ def get_recommendations():
                                          limit=100)
     recom = []
     for elements in recommendations['tracks']:
-        recom.append(elements['uri'])
+        recom.append(elements)
     return recom
 
 recom = get_recommendations()
