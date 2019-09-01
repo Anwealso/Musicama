@@ -120,6 +120,23 @@
         // Connect to the player!
         player.connect();
         
+        // Autoplay
+        $.ajax({
+                type: 'POST',
+                url: '/ajax/start_playback',
+                success: function(data) {
+                    $("#album_art").attr("src", data.album_art);
+                    $("#track_title").text(data.track_title);
+                    $("#artist").text(data.artist_name);
+                    console.log(data.is_playing)
+                    if (data.is_playing) {
+                      $("#play_button").html('Pause');
+                    } else {
+                      $("#play_button").html('Play');
+                    }
+                    return;
+                }
+            });
       };
 
       $(document).ready(function(){
@@ -127,7 +144,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '/ajax/start_playback',
+                url: '/ajax/toggle_playback',
                 success: function(data) {
                     $("#album_art").attr("src", data.album_art);
                     $("#track_title").text(data.track_title);
@@ -150,6 +167,28 @@
             $.ajax({
                 type: 'POST',
                 url: '/ajax/handle_feedback/like',
+                success: function(data) {
+                    $("#album_art").attr("src", data.album_art);
+                    $("#track_title").text(data.track_title);
+                    $("#artist").text(data.artist_name);
+                    console.log(data.is_playing)
+                    if (data.is_playing) {
+                      $("#play_button").html('Pause');
+                    } else {
+                      $("#play_button").html('Play');
+                    }
+                    return;
+                }
+            });
+        });
+      });
+
+      $(document).ready(function(){
+        $("#dislike_button").click(function(){
+
+            $.ajax({
+                type: 'POST',
+                url: '/ajax/handle_feedback/dislike',
                 success: function(data) {
                     $("#album_art").attr("src", data.album_art);
                     $("#track_title").text(data.track_title);
