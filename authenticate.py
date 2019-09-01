@@ -16,10 +16,6 @@ def get_token(username):
             redirect_uri)
     return token
 
-def create_user(token):
-    sp = Musicama(auth=token)
-    return sp
-
 
 def main():
     username = sys.argv[1]
